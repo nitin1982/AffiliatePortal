@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Login Page</div>
+    <div class="panel-body panelMinHeight">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-10">
+                <form #frmLogin = "ngForm" (ngSubmit)="Submit()">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        <input id="email" type="text" class="form-control" name="userName" [(ngModel)] = "user.userName" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input id="password" type="password" class="form-control" [(ngModel)] = "user.password" name="password" placeholder="Password">
+                    </div>
+                    <div class="input-group">
+                            <button type="submit" class="btn btn-primary">Login</button>&nbsp;&nbsp;
+                            <button (click)="Clear()" type="button" class="btn btn-primary">Cancel</button>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="col-sm-1"></div>
+        </div>
+    </div>
+    <div class="panel-footer">&nbsp;</div>
+</div>

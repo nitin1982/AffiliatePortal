@@ -1,0 +1,53 @@
+<div class="well well-lg">
+  <div class="row">
+    <div class="col-sm-3">
+      <b>{{ performanceData.group + '-' + performanceData.subGroup + ' ' + performanceData.performanceType | uppercase }}</b>
+    </div>
+    <div class="col-sm-9">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Jan</th>
+              <th>Feb</th>
+              <th>March</th>
+              <th>April</th>
+              <th>May</th>
+              <th>June</th>
+              <th>July</th>
+              <th>Aug</th>
+              <th>Sep</th>
+              <th>Oct</th>
+              <th>Nov</th>
+              <th>Dec</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ performanceData.performance.name }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.January) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.February) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.March) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.April) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.May) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.June) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.July) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.August) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.Sep) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.Oct) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.Nov) }}</td>
+              <td>{{ performanceData.performance.performances.get(yearMonths.Dec) }}</td>
+            </tr>
+
+            <tr>
+              <td colspan="13">
+                &nbsp;
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

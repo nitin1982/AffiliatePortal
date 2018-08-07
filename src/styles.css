@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+/* Remove the navbar's default margin-bottom and rounded borders */
+body { padding-top: 40px; }
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .fixed{
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+  .row.content {height: 1500px}
+
+  /* Set gray background color and 100% height */
+  .sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+  }
+
+  /* Set black background color, white text and some padding */
+  footer {
+    background-color: #555;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  /* On small screens, set height to 'auto' for sidenav and grid */
+  /* @media screen and (max-width: 767px) {
+    .sidenav {
+      height: auto;
+      padding: 15px;
+    }
+    .row.content {height:auto;}
+  } */
+
+  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color:white;
+    background-color:black
+    }
+  .panelMinHeight{
+    min-height: 450px;
+  }
+
+  .nav-pills.nav-wizard > li {
+    position: relative;
+    overflow: visible;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+  .nav-pills.nav-wizard > li + li {
+    margin-left: 0;
+  }
+  .nav-pills.nav-wizard > li:first-child {
+    border-left: 0;
+  }
+  .nav-pills.nav-wizard > li:first-child a {
+    border-radius: 5px 0 0 5px;
+  }
+  .nav-pills.nav-wizard > li:last-child {
+    border-right: 0;
+  }
+  .nav-pills.nav-wizard > li:last-child a {
+    border-radius: 0 5px 5px 0;
+  }
+  .nav-pills.nav-wizard > li a {
+    border-radius: 0;
+    background-color: #eee;
+  }
+  .nav-pills.nav-wizard > li:not(:last-child) a:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -20px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 20px 0 20px 20px;
+    border-color: transparent transparent transparent #eee;
+    z-index: 150;
+  }
+  .nav-pills.nav-wizard > li:not(:first-child) a:before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -20px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 20px 0 20px 20px;
+    border-color: #eee #eee #eee transparent;
+    z-index: 150;
+  }
+  .nav-pills.nav-wizard > li:hover:not(:last-child) a:after {
+    border-color: transparent transparent transparent #aaa;
+  }
+  .nav-pills.nav-wizard > li:hover:not(:first-child) a:before {
+    border-color: #aaa #aaa #aaa transparent;
+  }
+  .nav-pills.nav-wizard > li:hover a {
+    background-color: #aaa;
+    color: #fff;
+  }
+  .nav-pills.nav-wizard > li.active:not(:last-child) a:after {
+    border-color: transparent transparent transparent #05131D;
+  }
+  .nav-pills.nav-wizard > li.active:not(:first-child) a:before {
+    border-color: #05131D #05131D #05131D transparent;
+  }
+  .nav-pills.nav-wizard > li.active a {
+    background-color: #05131D;
+  }
