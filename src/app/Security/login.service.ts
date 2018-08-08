@@ -24,7 +24,7 @@ export class LoginService {
 
     logOut() {
         this.isLoggedIn = false;
-        this.loggedInUser = {userName:'', pasword:''};
+        this.loggedInUser = {userName:'', password:''};
     }
 
 }

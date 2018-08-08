@@ -8,7 +8,10 @@ import { Router } from '@angular/router';
 })
 
 export class NavigationComponent implements OnInit {
-    constructor(private loginService: LoginService, private router: Router) { }
+    isLoggedIn: boolean;
+    constructor(private loginService: LoginService, private router: Router) {
+        this.isLoggedIn = this.loginService.isLoggedIn;
+     }
 
     ngOnInit(): void { }
 

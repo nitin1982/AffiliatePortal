@@ -1,16 +1,16 @@
 <div class="panel panel-default">
-  <div class="panel-heading">Welcome to Affiliate Portal</div>
+  <div class="panel-heading">Welcome to Administrator's Page(Lazily Loaded Module)</div>
   <div class="panel-body panelMinHeight">
     <ul class="nav nav-pills">
       <li routerLinkActive="active">
-        <a [routerLink]="['Performance']">Performance</a>
+        <a [routerLink]="['./UserMaintenance']">User Maintenance</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a [routerLink]="['Report']">Report</a>
+        <a [routerLink]="['./Config']">Configuration</a>
       </li>
     </ul>
-    <br>
-    <router-outlet></router-outlet>
+    <br><router-outlet></router-outlet>
+    
   </div>
   <div class="panel-footer">&nbsp;</div>
 </div>

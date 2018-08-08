@@ -5,6 +5,7 @@ import { HomeComponent } from '../Home/home.component';
 import { NotFoundComponent } from '../not-found/not-found.component';
 import { LoginComponent } from '../Security/login-component/login-component.component';
 
+
 const appRoutes: Routes = [
   {
     path: 'Home',
@@ -18,6 +19,10 @@ const appRoutes: Routes = [
   {
     path: 'Login',
     component: LoginComponent
+  },
+  {
+    path: 'Admin',
+    loadChildren: '../Admin/admin.module#AdminModule'    
   },
   {
     path: '**',
