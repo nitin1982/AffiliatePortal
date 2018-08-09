@@ -4,21 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './Navigation/app-navigation.component';
 import { AffiliateModule } from './Affiliate/affiliate.module';
-import { AppRoutingModule } from './app-routing/app-routing.module';
-import { LoginComponent } from './Security/login-component/login-component.component';
-import { LoginService } from './Security/login.service';
-import { AuthGuard } from './Security/auth-guard.service';
 import { AppLoadingComponent } from './App-Loading/app-loading.component';
+import { SecurityModule } from './Security/security.module';
+import { AppRoutingModule } from './App-Routing/app-routing.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent, NavigationComponent, LoginComponent, AppLoadingComponent
+    AppComponent, NavigationComponent, AppLoadingComponent
   ],
   imports: [
-    BrowserModule, AffiliateModule, AppRoutingModule, FormsModule
+    BrowserModule, AffiliateModule, AppRoutingModule, FormsModule, SecurityModule
   ],
-  providers: [LoginService, AuthGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

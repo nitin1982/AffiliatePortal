@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
-import { IUser } from '../model/user';
+
 import { ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { IUser } from '../models/user';
+import { LoginService } from '../services/login.service';
 
 @Component({
     selector: 'affiliate-app-login',

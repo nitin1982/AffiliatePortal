@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IAffiliatePerformance, YearMonths } from '../../model/AffiliatePerformance';
+import { IAffiliatePerformance, YearMonths } from '../../models/AffiliatePerformance';
 
 @Component({
     selector: 'affiliate-performance-component',

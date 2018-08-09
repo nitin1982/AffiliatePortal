@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
-import { IUser } from './model/user';
+import { IUser } from '../models/user';
 
 @Injectable()
 export class LoginService {

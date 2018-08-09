@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAffiliatePerformance, YearMonths  } from '../model/AffiliatePerformance';
+import { IAffiliatePerformance, YearMonths  } from '../models/AffiliatePerformance';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 

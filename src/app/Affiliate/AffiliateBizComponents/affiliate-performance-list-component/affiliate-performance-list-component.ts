@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IAffiliatePerformance } from '../../model/AffiliatePerformance';
+import { IAffiliatePerformance } from '../../models/AffiliatePerformance';
 import { ActivatedRoute } from '@angular/router';
 
 

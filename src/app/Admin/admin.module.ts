@@ -6,10 +6,11 @@ import { AdminLandingComponent } from './Components/AdminLandingPage/admin-landi
 import { UserMaintenanceComponent } from './Components/UserMaintenance/user-maintenance.component';
 import { ConfigurationComponent } from './Components/Configuration/configuration.component';
 
+
 const adminRoutes: Routes = [
   {
     path: '',
-    component: AdminLandingComponent,
+    component: AdminLandingComponent,    
     children: [
       {
         path: 'UserMaintenance',

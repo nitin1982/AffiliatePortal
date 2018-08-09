@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../Security/login.service';
+
 import { Router } from '@angular/router';
+import { LoginService } from '../Security/services/login.service';
 
 @Component({
     selector: 'app-navigation',
@@ -8,9 +9,9 @@ import { Router } from '@angular/router';
 })
 
 export class NavigationComponent implements OnInit {
-    isLoggedIn: boolean;
+    
     constructor(private loginService: LoginService, private router: Router) {
-        this.isLoggedIn = this.loginService.isLoggedIn;
+        
      }
 
     ngOnInit(): void { }
