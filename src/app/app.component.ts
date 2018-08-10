@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationStart, NavigationCancel, NavigationEnd } from '@angular/router';
+import { LoginService } from './Security/services/login.service';
+import { IUser } from './Security/models/user';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +12,20 @@ export class AppComponent {
   loading: boolean;
   title = 'app';
 
-  constructor(private router: Router){
+  constructor(private router: Router, private loginService: LoginService){
     this.loading = true;
+
+    // this.loginService.login({userName: '', password: '', charterEmp: true} as IUser).subscribe(val => 
+    //   {
+    //       console.log(val);
+    //       this.loginService.setLocalStorage("AuthToken", val.token);
+
+    //       if (val && this.loginService.redirectUrl)
+    //           this.router.navigate([this.loginService.redirectUrl])
+    //   },error => {
+    //     console.log(error);
+    //     this.router.navigate(['Login']);
+    //   })
   }
 
   ngAfterViewInit() {

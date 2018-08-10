@@ -2,12 +2,21 @@ import { Injectable } from '@angular/core';
 import { IAffiliatePerformance, YearMonths  } from '../models/AffiliatePerformance';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LoginService } from '../../Security/services/login.service';
+
+ 
 
 @Injectable()
 export class AffiliateBizService {
     affiliatePerformanceData: IAffiliatePerformance[];
+    httpOptions = {
+        headers: new HttpHeaders({      
+          'Authorization': `Bearer ${this.loginService.getLocalStorage("AuthToken")}`
+        })
+      };
     
-    constructor(){
+    constructor(private http: HttpClient, private loginService: LoginService ){
         
     }
 
@@ -70,5 +79,9 @@ export class AffiliateBizService {
         this.affiliatePerformanceData.push(affiliatePerformanceIcTotal)
         this.affiliatePerformanceData.push(affiliatePerformanceIcZone)
         return of(this.affiliatePerformanceData).pipe(delay(1000));
+    }
+
+    getPerformancesAPIData(): Observable<any>{
+        return this.http.get<any>('http://localhost:61985/api/Performances', this.httpOptions);
     }
 }

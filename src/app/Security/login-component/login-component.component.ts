@@ -14,19 +14,29 @@ export class LoginComponent implements OnInit {
     @ViewChild('frmLogin') frm : any;
     user: IUser;
 
-    constructor(private loginService: LoginService, private router: Router) { }
+    constructor(private loginService: LoginService, private router: Router) { 
+    }
 
     ngOnInit(): void { 
-        this.user = {userName: '', password: ''};
+        this.user = {userName: '', password: '', charterEmp: false};        
     }
 
     Submit(){
-        console.log(this.frm.value);
-        this.loginService.login(this.frm.value).subscribe(val => 
-            {
-                if (this.loginService.redirectUrl)
-                    this.router.navigate([this.loginService.redirectUrl])
-            }
+        let user: IUser;
+        if(this.frm.value.charterEmp)
+            user = {userName: '', password: '', charterEmp: true};
+        else
+            user = this.frm.value as IUser;        
+            //console.log(user);
+
+        this.loginService.login(user).subscribe(val => 
+        {
+            console.log(val);
+            this.loginService.setLocalStorage("AuthToken", val.token);
+
+            if (val && this.loginService.redirectUrl)
+                this.router.navigate([this.loginService.redirectUrl])
+        }
         );        
         this.frm.reset();
 

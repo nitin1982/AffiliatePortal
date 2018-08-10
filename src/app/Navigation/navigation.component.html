@@ -24,8 +24,8 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li *ngIf="!isLoggedIn"><a routerLink="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          <li *ngIf="isLoggedIn">
+          <li *ngIf="!loginService.isLoggedIn"><a routerLink="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li *ngIf="loginService.isLoggedIn">
               <button (click)="Logout()" type="button" class="btn btn-default btn-sm">
                   <span class="glyphicon glyphicon-log-out"></span> Log out
               </button>

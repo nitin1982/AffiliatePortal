@@ -7,6 +7,10 @@ import { AffiliateModule } from './Affiliate/affiliate.module';
 import { AppLoadingComponent } from './App-Loading/app-loading.component';
 import { SecurityModule } from './Security/security.module';
 import { AppRoutingModule } from './App-Routing/app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryLoginDataService } from './Security/login-data/in-memory-login-data-service';
+import { AuthTokenInterceptor } from './Shared/interceptors/auth-token.interceptor';
 
 
 @NgModule({
@@ -14,7 +18,8 @@ import { AppRoutingModule } from './App-Routing/app-routing.module';
     AppComponent, NavigationComponent, AppLoadingComponent
   ],
   imports: [
-    BrowserModule, AffiliateModule, AppRoutingModule, FormsModule, SecurityModule
+    BrowserModule, AffiliateModule, AppRoutingModule, FormsModule, SecurityModule, HttpClientModule
+   //,HttpClientInMemoryWebApiModule.forRoot(InMemoryLoginDataService, { dataEncapsulation: false})
   ],
   providers: [],
   bootstrap: [AppComponent]

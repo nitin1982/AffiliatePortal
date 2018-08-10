@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AffiliateBizService } from '../../services/affiliate-biz.service';
 
 @Component({
     selector: 'affiliate-report',
@@ -6,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
     
 })
 export class AffiliateReportComponent implements OnInit {
-    constructor() { }
+    constructor(private bizService: AffiliateBizService) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void { 
+        this.bizService.getPerformancesAPIData().subscribe(data => console.log(data), error => console.log(error));
+    }
 }
