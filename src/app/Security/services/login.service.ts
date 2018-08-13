@@ -35,7 +35,9 @@ export class LoginService {
         }
     }
 
-
+    mockedLoginMethod():Observable<boolean>{
+        return of(true).pipe(delay(1000), tap(val => this.isLoggedIn = true));
+    }
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
           // A client-side or network error occurred. Handle it accordingly.
@@ -55,6 +57,7 @@ export class LoginService {
     logOut() {
         this.isLoggedIn = false;
         this.loggedInUser = { userName: '', password: '', charterEmp: false };
+        localStorage.removeItem("AuthToken");
     }
 
     setLocalStorage(k: string, v: string){

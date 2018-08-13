@@ -22,6 +22,11 @@
                             <label><input type="checkbox" name="charterEmp" [(ngModel)]="user.charterEmp" value="">Login with Charter Account?</label>
                         </div>
                     </div>
+                    <div class="input-group">                            
+                        <div class="checkbox">
+                            <label><input type="checkbox" name="noServerAPI" [(ngModel)]="noServerAPI" value="">Server API is not running.</label>
+                        </div>
+                    </div>
                     <div class="input-group">
                             <button type="submit" class="btn btn-primary">Login</button>&nbsp;&nbsp;
                             <button (click)="Clear()" type="button" class="btn btn-primary">Cancel</button>
