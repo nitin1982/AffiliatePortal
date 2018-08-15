@@ -40,16 +40,14 @@ export class LoginComponent implements OnInit {
             this.loginService.login(user).subscribe(val => 
             {
                 console.log(val);
-                this.loginService.setLocalStorage("AuthToken", val.token);
-
-                if (val && this.loginService.redirectUrl)
-                    this.router.navigate([this.loginService.redirectUrl])
+                if(val.token){
+                    if (val && this.loginService.redirectUrl)
+                        this.router.navigate([this.loginService.redirectUrl])
+                }
             }
             );
-        }
-                
+        }                
         this.frm.reset();
-
     }
 
     Clear(){

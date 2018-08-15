@@ -5,6 +5,7 @@ import { IUser } from '../models/user';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ILoggedInUser } from '../models/loggenInUser';
+import { HandleError, HttpErrorHandler } from '../../Shared/services/http-error-handler.service';
 
 @Injectable()
 export class LoginService {
@@ -14,30 +15,47 @@ export class LoginService {
     private innNetworkApiUrl: string = 'http://localhost:61985/api/Token/InNetwork';
     private outNetworkApiUrl: string = 'http://localhost:61985/api/Token/OutNetwork';
 
-    constructor(private http: HttpClient, private router: Router) {
+    private handleError: HandleError;
+
+    constructor(private http: HttpClient, private router: Router, private httpErrorHandler: HttpErrorHandler) {
+        this.handleError = httpErrorHandler.createHandleError('LoginService');
     }
 
     login(user: IUser): Observable<ILoggedInUser> {
         if (user) {
             if (user.charterEmp)
-                return this.http.get<ILoggedInUser>(this.innNetworkApiUrl, { withCredentials: true }).pipe(                    
-                    catchError(this.handleError),
+                return this.http.get<ILoggedInUser>(this.innNetworkApiUrl, { withCredentials: true }).pipe(
+                    catchError(this.handleError('Login', {} as ILoggedInUser)),
                     delay(1000),
-                    tap(val => this.isLoggedIn = true)
+                    tap(val => {
+                        if (val && val.token) {
+                            this.isLoggedIn = true;
+                            this.setLocalStorage("", val.token);
+                        }
+                    })
                 );
             else {
                 return this.http.post<ILoggedInUser>(this.outNetworkApiUrl, user).pipe(
-                    catchError(this.handleError),
+                    catchError(this.handleError('Login', {} as ILoggedInUser)),
                     delay(1000),
-                    tap(val => this.isLoggedIn = true)
+                    tap(val => {
+                        if (val && val.token) {
+                            this.isLoggedIn = true;
+                            this.setLocalStorage("", val.token);
+                        }
+                    })
                 );
             }
         }
     }
 
-    mockedLoginMethod():Observable<boolean>{
+
+
+    mockedLoginMethod(): Observable<boolean> {
         return of(true).pipe(delay(1000), tap(val => this.isLoggedIn = true));
     }
+
+    /*
     private handleError(error: HttpErrorResponse) {
         if (error.error instanceof ErrorEvent) {
           // A client-side or network error occurred. Handle it accordingly.
@@ -53,14 +71,14 @@ export class LoginService {
         return throwError(
           'Something bad happened; please try again later.');
       }
-
+    */
     logOut() {
         this.isLoggedIn = false;
         this.loggedInUser = { userName: '', password: '', charterEmp: false };
         localStorage.removeItem("AuthToken");
     }
 
-    setLocalStorage(k: string, v: string){
+    private setLocalStorage(k: string, v: string) {
         localStorage.setItem(k, v);
     }
 
