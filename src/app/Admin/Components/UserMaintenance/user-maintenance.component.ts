@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppUserService } from '../../services/app-user.service';
+import { AppUser } from '../../models/user';
 
 @Component({
   selector: 'app-user-maintenance',
@@ -6,12 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserMaintenanceComponent implements OnInit {
 
-  constructor() { 
-    console.log('Activated');
+  appUsers: AppUser[] = [];
+  constructor(private appUserService: AppUserService) { 
+    
   }
 
   ngOnInit() {
-    console.log('Activated1');
+    this.appUserService.getAllUsers().subscribe(data => this.appUsers = data);
   }
 
+  
 }

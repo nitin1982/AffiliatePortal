@@ -34,13 +34,13 @@ export class AppComponent {
     
     this.router.events.subscribe((event) => {
       if(event instanceof NavigationStart) {
-        console.log('Navigation Started.')
+        //console.log('Navigation Started.')
         this.loading = true;
       }else if (
         event instanceof NavigationEnd || 
         event instanceof NavigationCancel
         ) {
-        console.log('Navigation Ended.')
+        //console.log('Navigation Ended.')
         this.loading = false;
     }
     });

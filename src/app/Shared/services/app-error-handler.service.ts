@@ -19,7 +19,8 @@ export class AppErrorHandlerService implements ErrorHandler {
             }
          } else {
 
-           // Handle Client Error (Angular Error, ReferenceError...)     
+           // Handle Client Error (Angular Error, ReferenceError...) 
+           errorMessage = error.message;    
          }
 
         console.log(`Error occured in application: ${errorMessage}`);

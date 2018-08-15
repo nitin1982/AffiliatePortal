@@ -1,4 +1,23 @@
-<p>
-    User Maintenance Page.
-</p>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Employee ID</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>&nbsp;</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of appUsers">
+        <td>{{ user.name }}</td>
+        <td>{{ user.empID }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.contactNo }}</td>     
+        <td>
+            <a [routerLink]="['../AppUserDetail', user.id]">Detail</a>
+        </td>   
+      </tr>      
+    </tbody>
+  </table>
   

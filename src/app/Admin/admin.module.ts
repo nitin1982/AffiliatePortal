@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLandingComponent } from './Components/AdminLandingPage/admin-landing.component';
 import { UserMaintenanceComponent } from './Components/UserMaintenance/user-maintenance.component';
 import { ConfigurationComponent } from './Components/Configuration/configuration.component';
+import { AppUserService } from './services/app-user.service';
+import { UserDetailComponent } from './Components/UserDetail/user-detail.component';
 
 
 const adminRoutes: Routes = [
@@ -13,17 +15,21 @@ const adminRoutes: Routes = [
     component: AdminLandingComponent,    
     children: [
       {
-        path: 'UserMaintenance',
+        path: 'AppUsers',
         component: UserMaintenanceComponent
       },
       {
         path: '',
-        redirectTo: 'UserMaintenance',
+        redirectTo: 'AppUsers',
         pathMatch: 'full'
       },
       {
         path: 'Config',
         component: ConfigurationComponent
+      },
+      {
+        path:'AppUserDetail/:id',
+        component: UserDetailComponent
       }
     ]
   }
@@ -35,7 +41,8 @@ const adminRoutes: Routes = [
   imports: [
     CommonModule, RouterModule.forChild(adminRoutes)
   ],
-  declarations: [AdminLandingComponent, UserMaintenanceComponent, ConfigurationComponent]
+  declarations: [AdminLandingComponent, UserMaintenanceComponent, ConfigurationComponent, UserDetailComponent],
+  providers: [AppUserService]
 })
 
 export class AdminModule { }
