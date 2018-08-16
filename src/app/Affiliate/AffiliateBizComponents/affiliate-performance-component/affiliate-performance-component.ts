@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IAffiliatePerformance, YearMonths } from '../../models/AffiliatePerformance';
+import { AffiliatePerformance, YearMonths } from '../../models/AffiliatePerformance';
 
 @Component({
     selector: 'affiliate-performance-component',
@@ -8,7 +8,7 @@ import { IAffiliatePerformance, YearMonths } from '../../models/AffiliatePerform
 })
 export class AffilatePerformanceComponent implements OnInit {
     yearMonths = YearMonths;
-    @Input('performanceData') performanceData: IAffiliatePerformance;
+    @Input('performanceData') performanceData: AffiliatePerformance;
 
     constructor() { }
 

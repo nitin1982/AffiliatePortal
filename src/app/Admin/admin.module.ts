@@ -7,7 +7,8 @@ import { UserMaintenanceComponent } from './Components/UserMaintenance/user-main
 import { ConfigurationComponent } from './Components/Configuration/configuration.component';
 import { AppUserService } from './services/app-user.service';
 import { UserDetailComponent } from './Components/UserDetail/user-detail.component';
-
+import { AppUserFilterPipe } from './pipes/app-user-filter.pipe';
+import { FormsModule } from '@angular/forms';
 
 const adminRoutes: Routes = [
   {
@@ -39,9 +40,9 @@ const adminRoutes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule, RouterModule.forChild(adminRoutes)
+    CommonModule, FormsModule, RouterModule.forChild(adminRoutes)
   ],
-  declarations: [AdminLandingComponent, UserMaintenanceComponent, ConfigurationComponent, UserDetailComponent],
+  declarations: [AdminLandingComponent, UserMaintenanceComponent, ConfigurationComponent, UserDetailComponent, AppUserFilterPipe],
   providers: [AppUserService]
 })
 

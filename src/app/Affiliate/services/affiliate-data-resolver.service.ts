@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { IAffiliatePerformance } from '../models/AffiliatePerformance';
+import { AffiliatePerformance } from '../models/AffiliatePerformance';
 import { AffiliateBizService } from './affiliate-biz.service';
 
 @Injectable()
 
 
-export class AffiliateDataResolverGuard implements Resolve<IAffiliatePerformance[]> {
+export class AffiliateDataResolverGuard implements Resolve<AffiliatePerformance[]> {
     
     constructor(private affiliateService: AffiliateBizService) {
 
@@ -16,7 +16,7 @@ export class AffiliateDataResolverGuard implements Resolve<IAffiliatePerformance
     resolve(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
-    ): Observable<IAffiliatePerformance[]> {        
+    ): Observable<AffiliatePerformance[]> {        
         return this.affiliateService.getAffiliateBizData();
     }
 }

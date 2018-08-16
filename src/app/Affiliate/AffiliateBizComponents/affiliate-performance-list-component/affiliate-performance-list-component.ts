@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IAffiliatePerformance } from '../../models/AffiliatePerformance';
+import { AffiliatePerformance } from '../../models/AffiliatePerformance';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AffilatePerformanceListComponent implements OnInit {
     
-    affiliatePerformanceData: IAffiliatePerformance[];
+    affiliatePerformanceData: AffiliatePerformance[];
     
     constructor(private route: ActivatedRoute) { 
         this.affiliatePerformanceData = [];

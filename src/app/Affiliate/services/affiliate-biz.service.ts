@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IAffiliatePerformance, YearMonths  } from '../models/AffiliatePerformance';
+import { AffiliatePerformance, YearMonths  } from '../models/AffiliatePerformance';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { LoginService } from '../../Security/services/login.service';
 
 @Injectable()
 export class AffiliateBizService {
-    affiliatePerformanceData: IAffiliatePerformance[];
+    affiliatePerformanceData: AffiliatePerformance[];
     httpOptions = {
         headers: new HttpHeaders({      
           'Authorization': `Bearer ${this.loginService.getLocalStorage("AuthToken")}`
@@ -20,7 +20,7 @@ export class AffiliateBizService {
         
     }
 
-    getAffiliateBizData(): Observable<IAffiliatePerformance[]> {
+    getAffiliateBizData(): Observable<AffiliatePerformance[]> {
         this.affiliatePerformanceData = [];
         let performancesIcTotal = new Map<YearMonths, number>();
        
@@ -37,7 +37,7 @@ export class AffiliateBizService {
         performancesIcTotal.set(YearMonths.Nov, 111);
         performancesIcTotal.set(YearMonths.Dec, 112);
 
-        let affiliatePerformanceIcTotal: IAffiliatePerformance;
+        let affiliatePerformanceIcTotal: AffiliatePerformance;
         affiliatePerformanceIcTotal = {
             group: 'Interconnect',
             subGroup: 'Total',
@@ -64,7 +64,7 @@ export class AffiliateBizService {
         performancesIcZone.set(YearMonths.Nov, 158);
         performancesIcZone.set(YearMonths.Dec, 112);
 
-        let affiliatePerformanceIcZone: IAffiliatePerformance;
+        let affiliatePerformanceIcZone: AffiliatePerformance;
         affiliatePerformanceIcZone = {
             group: 'Interconnect',
             subGroup: 'Zone',

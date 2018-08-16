@@ -1,8 +1,8 @@
-export class IAffiliatePerformance{
+export interface AffiliatePerformance{
     group: string;
     subGroup: string;
     performanceType: string;
-    performance: affiliateYearlyPerformance
+    performance: AffiliateYearlyPerformance
 }
 
 export enum YearMonths {
@@ -20,7 +20,7 @@ export enum YearMonths {
     Dec = 12
 }
 
-export class affiliateYearlyPerformance{
+export interface AffiliateYearlyPerformance{
     name: string;
     performances: Map<YearMonths, number>;
 }

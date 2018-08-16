@@ -1,3 +1,7 @@
+<div class="form-group">
+  <label for="filterUser">Search:</label>
+  <input type="text" class="form-control" id="filterUser" name="srch" [(ngModel)]="srch">
+</div>
 <table class="table table-hover">
     <thead>
       <tr>
@@ -9,13 +13,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of appUsers">
+      <tr *ngFor="let user of appUsers | filter: srch">
         <td>{{ user.name }}</td>
         <td>{{ user.empID }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.contactNo }}</td>     
         <td>
-            <a [routerLink]="['../AppUserDetail', user.id]">Detail</a>
+            <a [routerLink]="['../AppUserDetail', user.id]" [queryParams]="{search: srch}">Detail</a>
         </td>   
       </tr>      
     </tbody>

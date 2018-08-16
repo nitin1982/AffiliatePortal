@@ -28,6 +28,6 @@ export class UserDetailComponent implements OnInit {
     }
 
     NavigateBack(){
-        this.router.navigate(['Admin/AppUsers']);
+        this.router.navigate(['Admin/AppUsers'],{ queryParamsHandling: 'preserve'});
     }
 }
