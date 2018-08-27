@@ -24,8 +24,8 @@ const appRoutes: Routes = [
   {
     path: 'Admin',
     // canActivate: [AuthGuard],
-    //canLoad: [AuthGuard]
-    data: { preload: true},
+    canLoad: [AuthGuard],
+    // data: { preload: true},
     loadChildren: '../Admin/admin.module#AdminModule'    
   },
   {

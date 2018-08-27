@@ -30,7 +30,7 @@ export class LoginService {
                     tap(val => {
                         if (val && val.token) {
                             this.isLoggedIn = true;
-                            this.setLocalStorage("", val.token);
+                            this.setLocalStorage("AuthToken", val.token);
                         }
                     })
                 );
@@ -41,7 +41,7 @@ export class LoginService {
                     tap(val => {
                         if (val && val.token) {
                             this.isLoggedIn = true;
-                            this.setLocalStorage("", val.token);
+                            this.setLocalStorage("AuthToken", val.token);
                         }
                     })
                 );
