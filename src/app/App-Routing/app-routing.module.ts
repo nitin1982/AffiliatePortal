@@ -7,6 +7,7 @@ import { LoginComponent } from '../Security/login-component/login-component.comp
 import { AuthGuard } from '../Security/services/auth-guard.service';
 import { SelectiveStrategy } from './services/selective-strategy.service';
 
+
 const appRoutes: Routes = [
   {
     path: 'Home',
